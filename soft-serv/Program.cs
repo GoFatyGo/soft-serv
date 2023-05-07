@@ -65,20 +65,20 @@ namespace soft_serv
         {
             // DateTime Now = new DateTime();
             //Now = DateTime.Parse(Console.ReadLine());
-            DateTime birthA = new DateTime(2000, 2, 2);
-            DateTime birthB = new DateTime(2010, 2, 2);
-            DateTime birthC = new DateTime(2005, 2, 2);
-            DateTime birthD = new DateTime(2012, 2, 2);
-            DateTime birthF = new DateTime(2001, 2, 2);
-            DateTime birthK = new DateTime(2004, 2, 2);
+            //DateTime birthA = new DateTime(2000, 2, 2);
+            //DateTime birthB = new DateTime(2010, 2, 2);
+            //DateTime birthC = new DateTime(2005, 2, 2);
+            //DateTime birthD = new DateTime(2012, 2, 2);
+            //DateTime birthF = new DateTime(2001, 2, 2);
+            //DateTime birthK = new DateTime(2004, 2, 2);
 
 
-            Person a = new Person("Nik", birthA);
-            Person b = new Person("Vasya", birthB);
-            Person c = new Person("Vasya", birthC);
-            Person d = new Person("Petya", birthD);
-            Person f = new Person("Kolya", birthF);
-            Person k = new Person("Nik", birthK);
+            Person a = new Person("Nik", new DateTime(2000,1,1));
+            Person b = new Person("Vasya", new DateTime(2010, 2, 2));
+            Person c = new Person("Vasya", new DateTime(2005, 2, 2));
+            Person d = new Person("Petya", new DateTime(2012, 2, 2));
+            Person f = new Person("Kolya", new DateTime(2001, 2, 2));
+            Person k = new Person("Nik", new DateTime(2004, 2, 2));
 
             a.Age();
             b.Age();
