@@ -9,10 +9,8 @@ namespace soft_serv
 
         class Person
         {
-            // DateTime dateTime = new DateTime();
             private string name;
             private DateTime birthYear = new DateTime();
-            static int q;
             public Person()
             {
                 name = "none";
@@ -29,8 +27,8 @@ namespace soft_serv
                 int Age = Now.Year - birthYear.Year;
                 if (Age < 16)
                 {
-                    // name = "Very Young";
-                    Console.WriteLine($"{name} is very Young ({Age})");
+                    name = "Very Young";
+                    Console.WriteLine($"{name} ({Age})");
                 }
                 else
                     Console.WriteLine($"{name} is {Age}");
@@ -75,12 +73,12 @@ namespace soft_serv
             DateTime birthK = new DateTime(2004, 2, 2);
 
 
-            Person a = new Person("Nik",birthA);
-            Person b = new Person("Vasya",birthB);
-            Person c = new Person("Vasya",birthC);
-            Person d = new Person("Petya",birthD);
-            Person f = new Person("Kolya",birthF);
-            Person k = new Person("Nik",birthK);
+            Person a = new Person("Nik", birthA);
+            Person b = new Person("Vasya", birthB);
+            Person c = new Person("Vasya", birthC);
+            Person d = new Person("Petya", birthD);
+            Person f = new Person("Kolya", birthF);
+            Person k = new Person("Nik", birthK);
 
             a.Age();
             b.Age();
@@ -90,18 +88,24 @@ namespace soft_serv
             k.Age();
 
 
-
-
             Person[] arr = new Person[] { a, b, c, d, f, k };
             foreach (var item in arr)
             {
                 Console.WriteLine(item);
             }
-
-            if (b == c)
+           
+            for (int i = 0; i < arr.Length; i++)
             {
-                Console.WriteLine("Одинаковые имена");
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] == arr[j])
+                    {
+                        Console.WriteLine($"{arr[i]} and {arr[j]} same names");
+                    }
+                }
             }
+
+
 
 
         }
