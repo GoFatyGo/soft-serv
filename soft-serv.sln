@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.33529.622
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "soft-serv", "soft-serv\soft-serv.csproj", "{F8BB9675-9A5F-4385-8C68-561DF50906DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soft-serv-interface", "soft-serv-interface\soft-serv-interface.csproj", "{5632254A-4CF3-4E3F-9429-98A29733DEDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "soft-serv-interface", "soft-serv-interface\soft-serv-interface.csproj", "{5632254A-4CF3-4E3F-9429-98A29733DEDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "try-catch", "try-catch\try-catch.csproj", "{2F3EE874-2A18-4F91-8DD5-B95BCF5E822E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5632254A-4CF3-4E3F-9429-98A29733DEDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5632254A-4CF3-4E3F-9429-98A29733DEDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5632254A-4CF3-4E3F-9429-98A29733DEDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F3EE874-2A18-4F91-8DD5-B95BCF5E822E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F3EE874-2A18-4F91-8DD5-B95BCF5E822E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F3EE874-2A18-4F91-8DD5-B95BCF5E822E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F3EE874-2A18-4F91-8DD5-B95BCF5E822E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
