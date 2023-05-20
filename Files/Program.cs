@@ -37,7 +37,7 @@ namespace Files
 
 
 
-            //create folder and txt with Names and numbers
+            //create folder and txt file inside with Names and numbers
 
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             DirectoryInfo dir = Directory.CreateDirectory($@"{desktopPath}/test_folder");
@@ -111,7 +111,7 @@ namespace Files
             using (StreamWriter includOnlyPhonesnumber = new StreamWriter(filePath2,true))
             {
                 
-                includOnlyPhonesnumber.WriteLine("\nCorrect format: ");
+                includOnlyPhonesnumber.WriteLine("\nCorrect format:  ");
                 for (int i = 0; i < arrAllinfo.Length; i++)
                 {
                     if (arrAllinfo[i].StartsWith("80"))
