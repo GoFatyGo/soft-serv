@@ -11,7 +11,7 @@ namespace Clases
         public abstract double Area();
         public abstract double Perimetr();
         public abstract override string ToString();
-       
+
     }
 
     class Circle : Shape
@@ -19,7 +19,7 @@ namespace Clases
         double pi = 3.14;
         // string name;
         public double R { get; set; }
-        
+
         public Circle()
         {
             Name = "Circle";
@@ -40,7 +40,7 @@ namespace Clases
         }
         public override string ToString()
         {
-            return $"Name: {Name}; R = {R};  Area = {Math.Round(Area(), 3, MidpointRounding.AwayFromZero)}; Perimetr = {Math.Round(Perimetr(),3,MidpointRounding.AwayFromZero)};";
+            return $"Name: {Name}; R = {R};  Area = {Math.Round(Area(), 3, MidpointRounding.AwayFromZero)}; Perimetr = {Math.Round(Perimetr(), 3, MidpointRounding.AwayFromZero)};";
         }
     }
     class Square : Shape
@@ -67,7 +67,7 @@ namespace Clases
         }
         public override string ToString()
         {
-            return $"Name: {Name}; Side = {Side}; Area = {Math.Round(Area(),3,MidpointRounding.AwayFromZero)}; Perimetr = {Math.Round(Perimetr(), 3, MidpointRounding.AwayFromZero)};";
+            return $"Name: {Name}; Side = {Side}; Area = {Math.Round(Area(), 3, MidpointRounding.AwayFromZero)}; Perimetr = {Math.Round(Perimetr(), 3, MidpointRounding.AwayFromZero)};";
         }
     }
 
@@ -88,7 +88,7 @@ namespace Clases
             //Write name, area and perimeter of all shapes. 
             //b) Find shape with the largest perimeter and print its name.
             //3) Sort shapes by area and print obtained list(Remember about IComparable)
-           
+
             //create List of objects
             List<Shape> shapes = new List<Shape>();
             shapes.Add(new Square() { Name = "Square 1", Side = 5 });
@@ -115,11 +115,12 @@ namespace Clases
                 arrPerimetrNames[i] = shapes[i].Name;
                 arrPerimetr[i] = shapes[i].Perimetr();
             }
-            double maxValuePerimetr = arrPerimetr.Max();
+            double Max = arrPerimetr.Max();
+            double maxValuePerimetr = Math.Round(Max, 3, MidpointRounding.AwayFromZero); //пришлось сделать через новую переменную, потому что на 129 строчке вылетает какой-то неопознанный токен
             string name = null;
             for (int i = 0; i < shapes.Count; i++)
             {
-                if (maxValuePerimetr == shapes[i].Perimetr())
+                if (Max == shapes[i].Perimetr())
                 {
                     name = shapes[i].Name;
                 }
@@ -145,9 +146,9 @@ namespace Clases
             }
 
             //sort Dictionary by Area value from largest to smallest
-            foreach (KeyValuePair<Shape, double> Area in shapesDictionary.OrderByDescending(key=>key.Value))
+            foreach (KeyValuePair<Shape, double> Area in shapesDictionary.OrderByDescending(key => key.Value))
             {
-                Console.WriteLine(Area.Key.ToString(),Area.Value);
+                Console.WriteLine(Area.Key.ToString(), Area.Value);
             }
 
 
