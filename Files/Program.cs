@@ -59,6 +59,9 @@ namespace Files
 
             //create new txt in folder with numbers only
 
+            // string desktopPathOnlyNumbers = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            // DirectoryInfo dirOnlyNumbers = Directory.CreateDirectory($@"{desktopPathOnlyNumbers}/Only_numbers");
+
             string fileNameOnlyNumbers = "OnlyNumbers.txt";
             string filePath2 = Path.Combine(dir.FullName, fileNameOnlyNumbers);
             if (!File.Exists(filePath2))
@@ -82,7 +85,7 @@ namespace Files
                 }
             }
 
-            //find phonenumbers by name
+            //find phonenumbers with name
 
             using (StreamReader reader = File.OpenText(filePath))
             {

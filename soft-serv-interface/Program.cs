@@ -4,18 +4,18 @@ using System.Collections.Generic;
 
 namespace soft_serv_interface
 {
-    //    Develop interface IFlyable with method Fly() (Output information about bird or plane).
-    //Create two classes Bird(with fields: name and canFly) and Plane(with fields: mark and highFly) ,
-    //which implement interface IFlyable.
-    //Create List of IFlyable objects.Add some Birds and Planes to it.Call Fly() method for every item from
-    //the list of it.
+//    Develop interface IFlyable with method Fly() (Output information about bird or plane).
+//Create two classes Bird(with fields: name and canFly) and Plane(with fields: mark and highFly) ,
+//which implement interface IFlyable.
+//Create List of IFlyable objects.Add some Birds and Planes to it.Call Fly() method for every item from
+//the list of it.
 
     interface IFlyable
     {
         void Fly();
     }
 
-    class Bird : IFlyable
+    class Bird:IFlyable
     {
         public string name { get; set; }
         public string canFly { get; set; }
@@ -27,36 +27,51 @@ namespace soft_serv_interface
 
     }
 
-    class Plane : IFlyable
+    class Plane:IFlyable
     {
         public string mark { get; set; }
         public string highFly { get; set; }
-
+      
         public void Fly()
         {
             Console.WriteLine($"{ mark} + {highFly}");
         }
     }
 
-    interface IDeveloper:IComparable<IDeveloper>
+    //interface ICompareTo
+    //{
+
+    //}
+
+
+
+    interface IDeveloper
     {
         string Tool { get; set; }
         //string languange { get; set; }
         void Create();
         void Destroy();
         string ToString();
+        //int CompareTo(object obj)
+        //{
+        //    return string.Compare(Tool.ToString(), obj != null ? ((IDeveloper)obj).Tool.ToString() : string.Empty);
+        //}
+        //public int CompareTo(object obj)
+        //{
+        //    return this.Tool.CompareTo(obj.)
+        //}
     }
     class Program
     {
-        class Programmer : IDeveloper
+        class Programmer : IDeveloper, IComparable
         {
             public string lenguange { get; set; }
 
             public string Tool { get; set; }
 
-            public int CompareTo(IDeveloper? other)
+            public int CompareTo(object obj)
             {
-                return string.Compare(Tool, other?.Tool);
+                return string.Compare(Tool.ToString(), obj != null ? ((IDeveloper)obj).Tool.ToString() : string.Empty);
             }
 
             public void Create()
@@ -72,7 +87,7 @@ namespace soft_serv_interface
                 return $"{lenguange}";
             }
         }
-        class Builder : IDeveloper
+        class Builder : IDeveloper, IComparable
         {
             public string Tool { get; set; }
             public void Create()
@@ -88,103 +103,78 @@ namespace soft_serv_interface
                 return $"{ Tool }";
             }
 
-            public int CompareTo(IDeveloper? other)
-            {
-                return string.Compare(Tool, other?.Tool);
-            }
+            //public void Sort()
+            //{
+            //    Array.Sort(this.Tool.CompareTo);
+            //}
 
-          
+            public int CompareTo(object obj)
+            {
+                return string.Compare(Tool.ToString(), obj != null ? ((IDeveloper)obj).Tool.ToString() : string.Empty);
+            }
         }
         static void Main(string[] args)
         {
-            //Task #1
-            //Bird bird1 = new Bird() { name = "parrot", canFly = "flies" };
-            //Bird bird2 = new Bird() { name = "hang", canFly = "can not flies" };
-            //Plane plane1 = new Plane() { mark = "Tu 144", highFly = "20 000m" };
-            //Plane plane2 = new Plane() { mark = "Su 35", highFly = "20 000m" };
-            //IFlyable[] flyables = new IFlyable[]
+
+            Bird bird1 = new Bird() { name = "parrot", canFly = "flies" };
+            Bird bird2 = new Bird() { name = "hang", canFly = "can not flies" };
+            Plane plane1 = new Plane() { mark = "Tu 144", highFly = "20 000m" };
+            Plane plane2 = new Plane() { mark = "Su 35", highFly = "20 000m" };
+            IFlyable[] flyables = new IFlyable[]
+            {
+               bird1,bird2,plane1,plane2
+            };
+            foreach (var item in flyables)
+            {
+                item.Fly();
+            }
+
+
+            //Console.WriteLine("Hello World!");
+            //Programmer programmer1 = new Programmer() { lenguange = "C++ (programmer)" };
+            //Programmer programmer2 = new Programmer() { lenguange = "Java (programmer)" };
+            //Programmer programmer3 = new Programmer() { lenguange = "C# (programmer)" };
+            //Programmer programmer4 = new Programmer() { lenguange = "PHP (programmer)" };
+            //Builder builder1 = new Builder() { Tool = "Hammer (builder)" };
+            //Builder builder2 = new Builder() { Tool = "Axe (builder)" };
+            //Builder builder3 = new Builder() { Tool = "Drill (builder)" };
+            //Builder builder4 = new Builder() { Tool = "Paint (builder)" };
+            //IDeveloper[] arrDeveloper = new IDeveloper[]
+            //    {
+            //            programmer1,
+            //            builder1,
+            //            builder2,
+            //            programmer2,
+            //            builder3,
+            //            builder4,
+            //            programmer3,
+            //            programmer4
+            //    };
+
+
+
+            //foreach (var item in arrDeveloper)
             //{
-            //   bird1,bird2,plane1,plane2
-            //};
-            //foreach (var item in flyables)
-            //{
-            //    item.Fly();
+            //    Console.WriteLine(item);
             //}
 
-            //Homwork:
-            Console.WriteLine("\n\nHello World!\n\n");
-            Programmer programmer1 = new Programmer() { lenguange = "C++ (programmer)" };
-            Programmer programmer2 = new Programmer() { lenguange = "Java (programmer)" };
-            Programmer programmer3 = new Programmer() { lenguange = "C# (programmer)" };
-            Programmer programmer4 = new Programmer() { lenguange = "PHP (programmer)" };
-            Builder builder1 = new Builder() { Tool = "Hammer (builder)" };
-            Builder builder2 = new Builder() { Tool = "Axe (builder)" };
-            Builder builder3 = new Builder() { Tool = "Drill (builder)" };
-            Builder builder4 = new Builder() { Tool = "Paint (builder)" };
-            
-
-            Console.WriteLine("Unsorted List: \n");
-            List<IDeveloper> developers = new List<IDeveloper>();
-            developers.Add(programmer4);
-            developers.Add(builder4);
-            developers.Add(programmer1);
-            developers.Add(builder1);
-            developers.Add(builder2);
-            developers.Add(builder3);
-            developers.Add(programmer2);
-            foreach (var item in developers)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("\nAfter sorted List: \n");
-            developers.Sort();
-            foreach (var item in developers)
-            {
-                Console.WriteLine(item);
-            }
+          //  Console.WriteLine(builder4.CompareTo(builder3)); 
 
 
-            //Create Console Application project in VS. In the Main() method declare Dictionary<uint,string>. 
+            // List<IDeveloper> developers = new List<IDeveloper>();
 
-            Console.WriteLine("\nEnter Id 1-8(Or exeption) ");
-            Dictionary<int, string> IdNames = new Dictionary<int, string>();
-            try
-            {
-                int Id = int.Parse(Console.ReadLine());
-                //Add to Dictionary from Console 7 pairs (ID, Name) of some persons. 
 
-                string Name;/*= Console.ReadLine();*/
-                IdNames.Add(1, "Pupkin.V");
-                IdNames.Add(2, "Supkin.V");
-                IdNames.Add(3, "Zupko.V");
-                IdNames.Add(4, "Mac.V");
-                IdNames.Add(5, "Durko.V");
-                IdNames.Add(6, "Shmatko.V");
-                IdNames.Add(7, "Shtirlits.V");
-                IdNames.Add(8, "Salivan.V");
-
-                Console.ForegroundColor = ConsoleColor.Green;
-
-                //Ask user to enter ID, then find and write corresponding Name from your Dictionary. If you can't find this ID - say about it to user. 
-                Console.WriteLine($"{Name = IdNames[Id]}\n");
-                Console.ResetColor();
-            }
-            catch (FormatException ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("ArgumentException" + ex.Message);
-
-            }
-            catch (KeyNotFoundException)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("There are no names with this Id");
-            }
-            Console.ResetColor();
+            //programmer1.Create();
+            //IDeveloper developer = new Programmer();
+            //developer.Destroy();
+            //developer = builder1;
+            //builder1.Create();
+            //Builder builder2 = new Builder();
+            //builder2.Create();
 
         }
 
-
+       
     }
 }
 
