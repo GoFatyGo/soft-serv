@@ -40,7 +40,6 @@ namespace Delegate_Events
             {
                 marks.Add(mark);
             }
-           // string str;
             public void ShowList()
             {
                 Console.Write("Marks: ");
@@ -48,9 +47,6 @@ namespace Delegate_Events
                 {
                     Console.Write(string.Format("{0}, ", item));
                 }
-
-                //  char ch = ',';
-                //str = String.Join(ch, marks);
             }
             public override string ToString()
             {
